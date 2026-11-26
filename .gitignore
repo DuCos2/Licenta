@@ -1,0 +1,13 @@
+# Python
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# macOS
+.DS_Store
+
+# Model checkpoints (large, ~71 MB each) and videos
+*.pth
+*.mp4
+.idea/

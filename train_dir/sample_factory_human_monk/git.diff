@@ -1,0 +1,17 @@
+diff --git a/sample_factory/model/core.py b/sample_factory/model/core.py
+index 50423d24..678642e0 100644
+--- a/sample_factory/model/core.py
++++ b/sample_factory/model/core.py
+@@ -24,10 +24,10 @@ class ModelCoreRNN(ModelCore):
+         self.is_gru = False
+ 
+         if cfg.rnn_type == "gru":
+-            self.core = nn.GRU(input_size, cfg.rnn_size, cfg.rnn_num_layers)
++            self.core = nn.GRU(int(input_size), cfg.rnn_size, cfg.rnn_num_layers)
+             self.is_gru = True
+         elif cfg.rnn_type == "lstm":
+-            self.core = nn.LSTM(input_size, cfg.rnn_size, cfg.rnn_num_layers)
++            self.core = nn.LSTM(int(input_size), cfg.rnn_size, cfg.rnn_num_layers)
+         else:
+             raise RuntimeError(f"Unknown RNN type {cfg.rnn_type}")
+ 

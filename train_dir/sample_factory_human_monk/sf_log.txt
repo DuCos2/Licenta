@@ -1,0 +1,822 @@
+[2026-10-27 18:35:50,397][42415] Saving configuration to ../train_dir/sample_factory_human_monk/config.json...
+[2026-10-27 18:35:50,534][42415] Rollout worker 0 uses device cpu
+[2026-10-27 18:35:50,534][42415] Rollout worker 1 uses device cpu
+[2026-10-27 18:35:50,534][42415] Rollout worker 2 uses device cpu
+[2026-10-27 18:35:50,534][42415] Rollout worker 3 uses device cpu
+[2026-10-27 18:35:50,534][42415] Rollout worker 4 uses device cpu
+[2026-10-27 18:35:50,534][42415] Rollout worker 5 uses device cpu
+[2026-10-27 18:35:50,534][42415] Rollout worker 6 uses device cpu
+[2026-10-27 18:35:50,534][42415] Rollout worker 7 uses device cpu
+[2026-10-27 18:35:50,534][42415] Rollout worker 8 uses device cpu
+[2026-10-27 18:35:50,534][42415] Rollout worker 9 uses device cpu
+[2026-10-27 18:35:50,534][42415] Rollout worker 10 uses device cpu
+[2026-10-27 18:35:50,534][42415] Rollout worker 11 uses device cpu
+[2026-10-27 18:38:17,272][42452] Saving configuration to ../train_dir/sample_factory_human_monk/config.json...
+[2026-10-27 18:38:17,354][42452] Rollout worker 0 uses device cpu
+[2026-10-27 18:38:17,354][42452] Rollout worker 1 uses device cpu
+[2026-10-27 18:38:17,354][42452] Rollout worker 2 uses device cpu
+[2026-10-27 18:38:17,354][42452] Rollout worker 3 uses device cpu
+[2026-10-27 18:38:17,354][42452] Rollout worker 4 uses device cpu
+[2026-10-27 18:38:17,354][42452] Rollout worker 5 uses device cpu
+[2026-10-27 18:38:17,354][42452] Rollout worker 6 uses device cpu
+[2026-10-27 18:38:17,354][42452] Rollout worker 7 uses device cpu
+[2026-10-27 18:38:17,354][42452] Rollout worker 8 uses device cpu
+[2026-10-27 18:38:17,354][42452] Rollout worker 9 uses device cpu
+[2026-10-27 18:38:17,354][42452] Rollout worker 10 uses device cpu
+[2026-10-27 18:38:17,354][42452] Rollout worker 11 uses device cpu
+[2026-10-27 18:38:17,450][42452] InferenceWorker_p0-w0: min num requests: 4
+[2026-10-27 18:38:17,495][42452] Starting all processes...
+[2026-10-27 18:38:17,495][42452] Starting process learner_proc0
+[2026-10-27 18:38:18,165][42452] Starting all processes...
+[2026-10-27 18:38:18,174][42452] Starting process inference_proc0-0
+[2026-10-27 18:38:18,174][42452] Starting process rollout_proc0
+[2026-10-27 18:38:18,174][42452] Starting process rollout_proc1
+[2026-10-27 18:38:18,174][42452] Starting process rollout_proc2
+[2026-10-27 18:38:18,174][42452] Starting process rollout_proc3
+[2026-10-27 18:38:18,174][42452] Starting process rollout_proc4
+[2026-10-27 18:38:18,174][42452] Starting process rollout_proc5
+[2026-10-27 18:38:18,178][42452] Starting process rollout_proc6
+[2026-10-27 18:38:18,183][42452] Starting process rollout_proc7
+[2026-10-27 18:38:18,183][42452] Starting process rollout_proc8
+[2026-10-27 18:38:18,183][42452] Starting process rollout_proc9
+[2026-10-27 18:38:18,183][42452] Starting process rollout_proc10
+[2026-10-27 18:38:18,183][42452] Starting process rollout_proc11
+[2026-10-27 18:38:18,334][42459] Setting fixed seed 22
+[2026-10-27 18:38:18,337][42459] Initializing actor-critic model on device cpu
+[2026-10-27 18:38:18,337][42459] RunningMeanStd input shape: (1,)
+[2026-10-27 18:38:19,140][42459] Created Actor Critic model with architecture:
+[2026-10-27 18:38:19,140][42459] ActorCriticSharedWeights(
+  (obs_normalizer): ObservationNormalizer()
+  (returns_normalizer): RecursiveScriptModule(original_name=RunningMeanStdInPlace)
+  (encoder): ChaoticDwarvenGPT5(
+    (encoders): ModuleDict()
+    (screen_encoder): RecursiveScriptModule(
+      original_name=ScreenEncoder
+      (conv_head): RecursiveScriptModule(
+        original_name=Sequential
+        (0): RecursiveScriptModule(original_name=Conv2d)
+        (1): RecursiveScriptModule(original_name=ELU)
+        (2): RecursiveScriptModule(original_name=Conv2d)
+        (3): RecursiveScriptModule(original_name=ELU)
+        (4): RecursiveScriptModule(original_name=Conv2d)
+        (5): RecursiveScriptModule(original_name=ELU)
+        (6): RecursiveScriptModule(original_name=Conv2d)
+        (7): RecursiveScriptModule(original_name=ELU)
+      )
+      (fc_head): RecursiveScriptModule(
+        original_name=Sequential
+        (0): RecursiveScriptModule(original_name=Linear)
+        (1): RecursiveScriptModule(original_name=ELU)
+      )
+    )
+    (topline_encoder): TopLineEncoder(
+      (msg_fwd): Sequential(
+        (0): Linear(in_features=20480, out_features=128, bias=True)
+        (1): ELU(alpha=1.0, inplace=True)
+        (2): Linear(in_features=128, out_features=128, bias=True)
+        (3): ELU(alpha=1.0, inplace=True)
+      )
+    )
+    (bottomline_encoder): RecursiveScriptModule(
+      original_name=BottomLinesEncoder
+      (conv_net): RecursiveScriptModule(
+        original_name=Sequential
+        (0): RecursiveScriptModule(original_name=Conv1d)
+        (1): RecursiveScriptModule(original_name=ELU)
+        (2): RecursiveScriptModule(original_name=Conv1d)
+        (3): RecursiveScriptModule(original_name=ELU)
+      )
+      (fwd_net): RecursiveScriptModule(
+        original_name=Sequential
+        (0): RecursiveScriptModule(original_name=Linear)
+        (1): RecursiveScriptModule(original_name=ELU)
+        (2): RecursiveScriptModule(original_name=Linear)
+        (3): RecursiveScriptModule(original_name=ELU)
+      )
+    )
+  )
+  (core): ModelCoreRNN(
+    (core): LSTM(889, 512)
+  )
+  (decoder): MlpDecoder(
+    (mlp): Identity()
+  )
+  (critic_linear): Linear(in_features=512, out_features=1, bias=True)
+  (action_parameterization): ActionParameterizationDefault(
+    (distribution_linear): Linear(in_features=512, out_features=121, bias=True)
+  )
+)
+[2026-10-27 18:38:19,213][42459] Using optimizer <class 'torch.optim.adam.Adam'>
+[2026-10-27 18:38:20,261][42463] On MacOS, not setting affinity
+[2026-10-27 18:38:20,319][42467] On MacOS, not setting affinity
+[2026-10-27 18:38:20,328][42466] On MacOS, not setting affinity
+[2026-10-27 18:38:20,341][42461] On MacOS, not setting affinity
+[2026-10-27 18:38:20,348][42462] On MacOS, not setting affinity
+[2026-10-27 18:38:20,353][42472] On MacOS, not setting affinity
+[2026-10-27 18:38:20,357][42464] On MacOS, not setting affinity
+[2026-10-27 18:38:20,358][42469] On MacOS, not setting affinity
+[2026-10-27 18:38:20,367][42465] On MacOS, not setting affinity
+[2026-10-27 18:38:20,377][42471] On MacOS, not setting affinity
+[2026-10-27 18:38:20,377][42470] On MacOS, not setting affinity
+[2026-10-27 18:38:20,424][42468] On MacOS, not setting affinity
+[2026-10-27 18:38:21,161][42459] No checkpoints found
+[2026-10-27 18:38:21,161][42459] Did not load from checkpoint, starting from scratch!
+[2026-10-27 18:38:21,161][42459] Initialized policy 0 weights for model version 0
+[2026-10-27 18:38:21,162][42459] LearnerWorker_p0 finished initialization!
+[2026-10-27 18:38:21,163][42460] RunningMeanStd input shape: (1,)
+[2026-10-27 18:38:21,273][42452] Inference worker 0-0 is ready!
+[2026-10-27 18:38:21,273][42452] All inference workers are ready! Signal rollout workers to start!
+[2026-10-27 18:38:21,487][42452] Fps is (10 sec: nan, 60 sec: nan, 300 sec: nan). Total num frames: 0. Throughput: 0: nan. Samples: 0. Policy #0 lag: (min: -1.0, avg: -1.0, max: -1.0)
+[2026-10-27 18:38:21,743][42472] Decorrelating experience for 0 frames...
+[2026-10-27 18:38:21,928][42468] Decorrelating experience for 0 frames...
+[2026-10-27 18:38:22,122][42461] Decorrelating experience for 0 frames...
+[2026-10-27 18:38:22,369][42467] Decorrelating experience for 0 frames...
+[2026-10-27 18:38:22,603][42462] Decorrelating experience for 0 frames...
+[2026-10-27 18:38:22,857][42466] Decorrelating experience for 0 frames...
+[2026-10-27 18:38:23,086][42465] Decorrelating experience for 0 frames...
+[2026-10-27 18:38:23,330][42470] Decorrelating experience for 0 frames...
+[2026-10-27 18:38:23,567][42464] Decorrelating experience for 0 frames...
+[2026-10-27 18:38:23,810][42469] Decorrelating experience for 0 frames...
+[2026-10-27 18:38:24,057][42463] Decorrelating experience for 0 frames...
+[2026-10-27 18:38:24,296][42471] Decorrelating experience for 0 frames...
+[2026-10-27 18:38:24,540][42472] Decorrelating experience for 32 frames...
+[2026-10-27 18:38:24,776][42468] Decorrelating experience for 32 frames...
+[2026-10-27 18:38:25,012][42461] Decorrelating experience for 32 frames...
+[2026-10-27 18:38:25,253][42467] Decorrelating experience for 32 frames...
+[2026-10-27 18:38:25,554][42462] Decorrelating experience for 32 frames...
+[2026-10-27 18:38:25,813][42466] Decorrelating experience for 32 frames...
+[2026-10-27 18:38:26,020][42459] Signal inference workers to stop experience collection...
+[2026-10-27 18:38:26,024][42460] InferenceWorker_p0-w0: stopping experience collection
+[2026-10-27 18:38:26,060][42465] Decorrelating experience for 32 frames...
+[2026-10-27 18:38:26,296][42470] Decorrelating experience for 32 frames...
+[2026-10-27 18:38:26,394][42459] Signal inference workers to resume experience collection...
+[2026-10-27 18:38:26,394][42460] InferenceWorker_p0-w0: resuming experience collection
+[2026-10-27 18:38:26,491][42452] Fps is (10 sec: 204.6, 60 sec: 204.6, 300 sec: 204.6). Total num frames: 1024. Throughput: 0: 0.0. Samples: 0. Policy #0 lag: (min: 0.0, avg: 0.0, max: 0.0)
+[2026-10-27 18:38:26,491][42452] Avg episode reward: [(0, '0.000')]
+[2026-10-27 18:38:26,537][42464] Decorrelating experience for 32 frames...
+[2026-10-27 18:38:26,771][42469] Decorrelating experience for 32 frames...
+[2026-10-27 18:38:27,002][42463] Decorrelating experience for 32 frames...
+[2026-10-27 18:38:27,252][42471] Decorrelating experience for 32 frames...
+[2026-10-27 18:38:31,491][42452] Fps is (10 sec: 716.5, 60 sec: 716.5, 300 sec: 716.5). Total num frames: 7168. Throughput: 0: 779.7. Samples: 7801. Policy #0 lag: (min: 1.0, avg: 1.2, max: 2.0)
+[2026-10-27 18:38:31,491][42452] Avg episode reward: [(0, '0.000')]
+[2026-10-27 18:38:32,961][42460] Updated weights for policy 0, policy_version 10 (0.0011)
+[2026-10-27 18:38:36,491][42452] Fps is (10 sec: 1331.2, 60 sec: 955.4, 300 sec: 955.4). Total num frames: 14336. Throughput: 0: 1095.9. Samples: 16444. Policy #0 lag: (min: 1.0, avg: 1.4, max: 2.0)
+[2026-10-27 18:38:36,491][42452] Avg episode reward: [(0, '0.000')]
+[2026-10-27 18:38:37,440][42452] Heartbeat connected on Batcher_0
+[2026-10-27 18:38:37,453][42452] Heartbeat connected on InferenceWorker_p0-w0
+[2026-10-27 18:38:37,454][42452] Heartbeat connected on RolloutWorker_w0
+[2026-10-27 18:38:37,457][42452] Heartbeat connected on RolloutWorker_w1
+[2026-10-27 18:38:37,464][42452] Heartbeat connected on RolloutWorker_w2
+[2026-10-27 18:38:37,467][42452] Heartbeat connected on RolloutWorker_w3
+[2026-10-27 18:38:37,469][42452] Heartbeat connected on RolloutWorker_w4
+[2026-10-27 18:38:37,473][42452] Heartbeat connected on RolloutWorker_w5
+[2026-10-27 18:38:37,477][42452] Heartbeat connected on RolloutWorker_w6
+[2026-10-27 18:38:37,480][42452] Heartbeat connected on RolloutWorker_w7
+[2026-10-27 18:38:37,486][42452] Heartbeat connected on RolloutWorker_w8
+[2026-10-27 18:38:37,490][42452] Heartbeat connected on RolloutWorker_w9
+[2026-10-27 18:38:37,492][42452] Heartbeat connected on RolloutWorker_w10
+[2026-10-27 18:38:37,495][42452] Heartbeat connected on RolloutWorker_w11
+[2026-10-27 18:38:38,810][42452] Heartbeat connected on LearnerWorker_p0
+[2026-10-27 18:38:40,289][42460] Updated weights for policy 0, policy_version 20 (0.0013)
+[2026-10-27 18:38:41,487][42452] Fps is (10 sec: 1434.1, 60 sec: 1075.2, 300 sec: 1075.2). Total num frames: 21504. Throughput: 0: 1027.2. Samples: 20545. Policy #0 lag: (min: 1.0, avg: 1.5, max: 2.0)
+[2026-10-27 18:38:41,487][42452] Avg episode reward: [(0, '0.000')]
+[2026-10-27 18:38:46,488][42452] Fps is (10 sec: 1434.0, 60 sec: 1146.8, 300 sec: 1146.8). Total num frames: 28672. Throughput: 0: 1154.6. Samples: 28866. Policy #0 lag: (min: 1.0, avg: 1.4, max: 2.0)
+[2026-10-27 18:38:46,488][42452] Avg episode reward: [(0, '0.000')]
+[2026-10-27 18:38:47,677][42460] Updated weights for policy 0, policy_version 30 (0.0012)
+[2026-10-27 18:38:51,491][42452] Fps is (10 sec: 1433.1, 60 sec: 1194.5, 300 sec: 1194.5). Total num frames: 35840. Throughput: 0: 1241.2. Samples: 37242. Policy #0 lag: (min: 1.0, avg: 1.6, max: 2.0)
+[2026-10-27 18:38:51,491][42452] Avg episode reward: [(0, '0.000')]
+[2026-10-27 18:38:54,969][42460] Updated weights for policy 0, policy_version 40 (0.0015)
+[2026-10-27 18:38:56,489][42452] Fps is (10 sec: 1433.4, 60 sec: 1228.7, 300 sec: 1228.7). Total num frames: 43008. Throughput: 0: 1180.2. Samples: 41310. Policy #0 lag: (min: 1.0, avg: 1.2, max: 2.0)
+[2026-10-27 18:38:56,489][42452] Avg episode reward: [(0, '0.000')]
+[2026-10-27 18:39:01,491][42452] Fps is (10 sec: 1331.2, 60 sec: 1228.7, 300 sec: 1228.7). Total num frames: 49152. Throughput: 0: 1248.5. Samples: 49945. Policy #0 lag: (min: 1.0, avg: 1.6, max: 2.0)
+[2026-10-27 18:39:01,491][42452] Avg episode reward: [(0, '0.000')]
+[2026-10-27 18:39:02,253][42460] Updated weights for policy 0, policy_version 50 (0.0015)
+[2026-10-27 18:39:06,491][42452] Fps is (10 sec: 1331.0, 60 sec: 1251.4, 300 sec: 1251.4). Total num frames: 56320. Throughput: 0: 1302.6. Samples: 58622. Policy #0 lag: (min: 1.0, avg: 1.2, max: 2.0)
+[2026-10-27 18:39:06,491][42452] Avg episode reward: [(0, '0.000')]
+[2026-10-27 18:39:08,094][42459] Signal inference workers to stop experience collection... (50 times)
+[2026-10-27 18:39:08,105][42460] InferenceWorker_p0-w0: stopping experience collection (50 times)
+[2026-10-27 18:39:08,113][42459] Signal inference workers to resume experience collection... (50 times)
+[2026-10-27 18:39:08,113][42460] InferenceWorker_p0-w0: resuming experience collection (50 times)
+[2026-10-27 18:39:09,570][42460] Updated weights for policy 0, policy_version 60 (0.0016)
+[2026-10-27 18:39:11,491][42452] Fps is (10 sec: 1433.6, 60 sec: 1269.6, 300 sec: 1269.6). Total num frames: 63488. Throughput: 0: 1392.4. Samples: 62658. Policy #0 lag: (min: 1.0, avg: 1.4, max: 2.0)
+[2026-10-27 18:39:11,491][42452] Avg episode reward: [(0, '0.000')]
+[2026-10-27 18:39:16,491][42452] Fps is (10 sec: 1433.6, 60 sec: 1284.5, 300 sec: 1284.5). Total num frames: 70656. Throughput: 0: 1404.8. Samples: 71017. Policy #0 lag: (min: 1.0, avg: 1.5, max: 2.0)
+[2026-10-27 18:39:16,491][42452] Avg episode reward: [(0, '0.000')]
+[2026-10-27 18:39:16,957][42460] Updated weights for policy 0, policy_version 70 (0.0017)
+[2026-10-27 18:39:21,491][42452] Fps is (10 sec: 1433.6, 60 sec: 1297.0, 300 sec: 1297.0). Total num frames: 77824. Throughput: 0: 1396.6. Samples: 79290. Policy #0 lag: (min: 1.0, avg: 1.3, max: 2.0)
+[2026-10-27 18:39:21,491][42452] Avg episode reward: [(0, '-1.000')]
+[2026-10-27 18:39:24,314][42460] Updated weights for policy 0, policy_version 80 (0.0012)
+[2026-10-27 18:39:26,491][42452] Fps is (10 sec: 1331.2, 60 sec: 1382.4, 300 sec: 1291.7). Total num frames: 83968. Throughput: 0: 1394.6. Samples: 83308. Policy #0 lag: (min: 1.0, avg: 1.5, max: 2.0)
+[2026-10-27 18:39:26,491][42452] Avg episode reward: [(0, '-1.000')]
+[2026-10-27 18:39:31,491][42452] Fps is (10 sec: 1331.2, 60 sec: 1399.5, 300 sec: 1301.9). Total num frames: 91136. Throughput: 0: 1397.2. Samples: 91744. Policy #0 lag: (min: 1.0, avg: 1.3, max: 2.0)
+[2026-10-27 18:39:31,491][42452] Avg episode reward: [(0, '-1.000')]
+[2026-10-27 18:39:31,716][42460] Updated weights for policy 0, policy_version 90 (0.0013)
+[2026-10-27 18:39:36,488][42452] Fps is (10 sec: 1434.0, 60 sec: 1399.5, 300 sec: 1310.7). Total num frames: 98304. Throughput: 0: 1392.5. Samples: 99902. Policy #0 lag: (min: 1.0, avg: 1.5, max: 2.0)
+[2026-10-27 18:39:36,488][42452] Avg episode reward: [(0, '-0.750')]
+[2026-10-27 18:39:39,115][42460] Updated weights for policy 0, policy_version 100 (0.0019)
+[2026-10-27 18:39:41,491][42452] Fps is (10 sec: 1433.6, 60 sec: 1399.4, 300 sec: 1318.3). Total num frames: 105472. Throughput: 0: 1398.6. Samples: 104250. Policy #0 lag: (min: 1.0, avg: 1.3, max: 2.0)
+[2026-10-27 18:39:41,491][42452] Avg episode reward: [(0, '-0.750')]
+[2026-10-27 18:39:42,054][42459] Saving new best policy, reward=-0.750!
+[2026-10-27 18:39:45,754][42459] Signal inference workers to stop experience collection... (100 times)
+[2026-10-27 18:39:45,769][42460] InferenceWorker_p0-w0: stopping experience collection (100 times)
+[2026-10-27 18:39:45,845][42459] Signal inference workers to resume experience collection... (100 times)
+[2026-10-27 18:39:45,845][42460] InferenceWorker_p0-w0: resuming experience collection (100 times)
+[2026-10-27 18:39:46,490][42452] Fps is (10 sec: 1330.9, 60 sec: 1382.4, 300 sec: 1313.1). Total num frames: 111616. Throughput: 0: 1385.0. Samples: 112268. Policy #0 lag: (min: 1.0, avg: 1.3, max: 2.0)
+[2026-10-27 18:39:46,490][42452] Avg episode reward: [(0, '-0.750')]
+[2026-10-27 18:39:46,579][42460] Updated weights for policy 0, policy_version 110 (0.0013)
+[2026-10-27 18:39:51,491][42452] Fps is (10 sec: 1331.2, 60 sec: 1382.4, 300 sec: 1319.8). Total num frames: 118784. Throughput: 0: 1378.5. Samples: 120656. Policy #0 lag: (min: 1.0, avg: 1.3, max: 2.0)
+[2026-10-27 18:39:51,491][42452] Avg episode reward: [(0, '-0.750')]
+[2026-10-27 18:39:53,985][42460] Updated weights for policy 0, policy_version 120 (0.0016)
+[2026-10-27 18:39:56,491][42452] Fps is (10 sec: 1433.5, 60 sec: 1382.4, 300 sec: 1325.7). Total num frames: 125952. Throughput: 0: 1380.1. Samples: 124763. Policy #0 lag: (min: 1.0, avg: 1.3, max: 2.0)
+[2026-10-27 18:39:56,491][42452] Avg episode reward: [(0, '-0.600')]
+[2026-10-27 18:39:56,947][42459] Saving new best policy, reward=-0.600!
+[2026-10-27 18:40:01,485][42460] Updated weights for policy 0, policy_version 130 (0.0016)
+[2026-10-27 18:40:01,487][42452] Fps is (10 sec: 1434.2, 60 sec: 1399.6, 300 sec: 1331.2). Total num frames: 133120. Throughput: 0: 1377.3. Samples: 132989. Policy #0 lag: (min: 1.0, avg: 1.5, max: 2.0)
+[2026-10-27 18:40:01,488][42452] Avg episode reward: [(0, '-0.500')]
+[2026-10-27 18:40:02,218][42459] Saving new best policy, reward=-0.500!
+[2026-10-27 18:40:06,488][42452] Fps is (10 sec: 1331.5, 60 sec: 1382.5, 300 sec: 1326.3). Total num frames: 139264. Throughput: 0: 1377.2. Samples: 141259. Policy #0 lag: (min: 1.0, avg: 1.3, max: 2.0)
+[2026-10-27 18:40:06,488][42452] Avg episode reward: [(0, '-0.500')]
+[2026-10-27 18:40:09,001][42460] Updated weights for policy 0, policy_version 140 (0.0012)
+[2026-10-27 18:40:11,488][42452] Fps is (10 sec: 1331.1, 60 sec: 1382.5, 300 sec: 1331.2). Total num frames: 146432. Throughput: 0: 1376.0. Samples: 145224. Policy #0 lag: (min: 1.0, avg: 1.5, max: 2.0)
+[2026-10-27 18:40:11,488][42452] Avg episode reward: [(0, '-0.500')]
+[2026-10-27 18:40:16,431][42460] Updated weights for policy 0, policy_version 150 (0.0016)
+[2026-10-27 18:40:16,489][42452] Fps is (10 sec: 1433.5, 60 sec: 1382.4, 300 sec: 1335.6). Total num frames: 153600. Throughput: 0: 1376.1. Samples: 153668. Policy #0 lag: (min: 1.0, avg: 1.3, max: 2.0)
+[2026-10-27 18:40:16,489][42452] Avg episode reward: [(0, '-0.500')]
+[2026-10-27 18:40:17,180][42459] Saving ../train_dir/sample_factory_human_monk/checkpoint_p0/checkpoint_000000151_154624.pth...
+[2026-10-27 18:40:21,491][42452] Fps is (10 sec: 1330.8, 60 sec: 1365.3, 300 sec: 1331.1). Total num frames: 159744. Throughput: 0: 1371.0. Samples: 161601. Policy #0 lag: (min: 1.0, avg: 1.5, max: 2.0)
+[2026-10-27 18:40:21,491][42452] Avg episode reward: [(0, '-0.429')]
+[2026-10-27 18:40:21,883][42459] Saving new best policy, reward=-0.429!
+[2026-10-27 18:40:23,251][42459] Signal inference workers to stop experience collection... (150 times)
+[2026-10-27 18:40:23,264][42460] InferenceWorker_p0-w0: stopping experience collection (150 times)
+[2026-10-27 18:40:23,469][42459] Signal inference workers to resume experience collection... (150 times)
+[2026-10-27 18:40:23,469][42460] InferenceWorker_p0-w0: resuming experience collection (150 times)
+[2026-10-27 18:40:24,218][42460] Updated weights for policy 0, policy_version 160 (0.0013)
+[2026-10-27 18:40:26,491][42452] Fps is (10 sec: 1331.0, 60 sec: 1382.4, 300 sec: 1335.2). Total num frames: 166912. Throughput: 0: 1361.0. Samples: 165496. Policy #0 lag: (min: 1.0, avg: 1.3, max: 2.0)
+[2026-10-27 18:40:26,491][42452] Avg episode reward: [(0, '-0.429')]
+[2026-10-27 18:40:31,487][42452] Fps is (10 sec: 1331.8, 60 sec: 1365.4, 300 sec: 1331.2). Total num frames: 173056. Throughput: 0: 1365.4. Samples: 173708. Policy #0 lag: (min: 1.0, avg: 1.3, max: 2.0)
+[2026-10-27 18:40:31,487][42452] Avg episode reward: [(0, '-0.375')]
+[2026-10-27 18:40:31,721][42460] Updated weights for policy 0, policy_version 170 (0.0012)
+[2026-10-27 18:40:32,476][42459] Saving new best policy, reward=-0.375!
+[2026-10-27 18:40:36,491][42452] Fps is (10 sec: 1331.2, 60 sec: 1365.3, 300 sec: 1334.9). Total num frames: 180224. Throughput: 0: 1354.9. Samples: 181628. Policy #0 lag: (min: 1.0, avg: 1.3, max: 2.0)
+[2026-10-27 18:40:36,491][42452] Avg episode reward: [(0, '-0.333')]
+[2026-10-27 18:40:37,162][42459] Saving new best policy, reward=-0.333!
+[2026-10-27 18:40:39,568][42460] Updated weights for policy 0, policy_version 180 (0.0014)
+[2026-10-27 18:40:41,489][42452] Fps is (10 sec: 1330.9, 60 sec: 1348.3, 300 sec: 1331.2). Total num frames: 186368. Throughput: 0: 1353.5. Samples: 185668. Policy #0 lag: (min: 1.0, avg: 1.4, max: 2.0)
+[2026-10-27 18:40:41,489][42452] Avg episode reward: [(0, '-0.333')]
+[2026-10-27 18:40:46,491][42452] Fps is (10 sec: 1228.8, 60 sec: 1348.2, 300 sec: 1327.6). Total num frames: 192512. Throughput: 0: 1347.5. Samples: 193633. Policy #0 lag: (min: 1.0, avg: 1.3, max: 2.0)
+[2026-10-27 18:40:46,491][42452] Avg episode reward: [(0, '-0.333')]
+[2026-10-27 18:40:47,333][42460] Updated weights for policy 0, policy_version 190 (0.0014)
+[2026-10-27 18:40:51,491][42452] Fps is (10 sec: 1331.0, 60 sec: 1348.3, 300 sec: 1331.2). Total num frames: 199680. Throughput: 0: 1337.3. Samples: 201439. Policy #0 lag: (min: 1.0, avg: 1.4, max: 2.0)
+[2026-10-27 18:40:51,491][42452] Avg episode reward: [(0, '-0.273')]
+[2026-10-27 18:40:51,811][42459] Saving new best policy, reward=-0.273!
+[2026-10-27 18:40:54,873][42460] Updated weights for policy 0, policy_version 200 (0.0011)
+[2026-10-27 18:40:56,489][42452] Fps is (10 sec: 1433.9, 60 sec: 1348.3, 300 sec: 1334.5). Total num frames: 206848. Throughput: 0: 1340.7. Samples: 205557. Policy #0 lag: (min: 1.0, avg: 1.5, max: 2.0)
+[2026-10-27 18:40:56,489][42452] Avg episode reward: [(0, '-0.273')]
+[2026-10-27 18:41:01,279][42459] Signal inference workers to stop experience collection... (200 times)
+[2026-10-27 18:41:01,290][42460] InferenceWorker_p0-w0: stopping experience collection (200 times)
+[2026-10-27 18:41:01,491][42452] Fps is (10 sec: 1331.2, 60 sec: 1331.1, 300 sec: 1331.2). Total num frames: 212992. Throughput: 0: 1340.7. Samples: 214003. Policy #0 lag: (min: 1.0, avg: 1.4, max: 2.0)
+[2026-10-27 18:41:01,491][42452] Avg episode reward: [(0, '-0.250')]
+[2026-10-27 18:41:01,569][42459] Signal inference workers to resume experience collection... (200 times)
+[2026-10-27 18:41:01,569][42460] InferenceWorker_p0-w0: resuming experience collection (200 times)
+[2026-10-27 18:41:02,312][42459] Saving new best policy, reward=-0.250!
+[2026-10-27 18:41:02,313][42460] Updated weights for policy 0, policy_version 210 (0.0013)
+[2026-10-27 18:41:06,489][42452] Fps is (10 sec: 1331.2, 60 sec: 1348.2, 300 sec: 1334.3). Total num frames: 220160. Throughput: 0: 1343.1. Samples: 222039. Policy #0 lag: (min: 1.0, avg: 1.5, max: 2.0)
+[2026-10-27 18:41:06,490][42452] Avg episode reward: [(0, '-0.250')]
+[2026-10-27 18:41:09,855][42460] Updated weights for policy 0, policy_version 220 (0.0015)
+[2026-10-27 18:41:11,489][42452] Fps is (10 sec: 1433.9, 60 sec: 1348.2, 300 sec: 1337.2). Total num frames: 227328. Throughput: 0: 1343.9. Samples: 225969. Policy #0 lag: (min: 1.0, avg: 1.4, max: 2.0)
+[2026-10-27 18:41:11,489][42452] Avg episode reward: [(0, '-0.250')]
+[2026-10-27 18:41:16,489][42452] Fps is (10 sec: 1331.2, 60 sec: 1331.2, 300 sec: 1334.1). Total num frames: 233472. Throughput: 0: 1344.8. Samples: 234227. Policy #0 lag: (min: 1.0, avg: 1.4, max: 2.0)
+[2026-10-27 18:41:16,489][42452] Avg episode reward: [(0, '-0.250')]
+[2026-10-27 18:41:17,290][42460] Updated weights for policy 0, policy_version 230 (0.0017)
+[2026-10-27 18:41:21,491][42452] Fps is (10 sec: 1331.0, 60 sec: 1348.3, 300 sec: 1336.9). Total num frames: 240640. Throughput: 0: 1352.9. Samples: 242510. Policy #0 lag: (min: 1.0, avg: 1.3, max: 2.0)
+[2026-10-27 18:41:21,491][42452] Avg episode reward: [(0, '-0.250')]
+[2026-10-27 18:41:24,777][42460] Updated weights for policy 0, policy_version 240 (0.0018)
+[2026-10-27 18:41:26,491][42452] Fps is (10 sec: 1433.3, 60 sec: 1348.3, 300 sec: 1339.5). Total num frames: 247808. Throughput: 0: 1353.7. Samples: 246587. Policy #0 lag: (min: 1.0, avg: 1.4, max: 2.0)
+[2026-10-27 18:41:26,491][42452] Avg episode reward: [(0, '-0.250')]
+[2026-10-27 18:41:31,490][42452] Fps is (10 sec: 1433.7, 60 sec: 1365.2, 300 sec: 1342.0). Total num frames: 254976. Throughput: 0: 1362.7. Samples: 254955. Policy #0 lag: (min: 1.0, avg: 1.4, max: 2.0)
+[2026-10-27 18:41:31,491][42452] Avg episode reward: [(0, '-0.250')]
+[2026-10-27 18:41:32,216][42460] Updated weights for policy 0, policy_version 250 (0.0013)
+[2026-10-27 18:41:36,491][42452] Fps is (10 sec: 1331.2, 60 sec: 1348.3, 300 sec: 1339.0). Total num frames: 261120. Throughput: 0: 1371.6. Samples: 263161. Policy #0 lag: (min: 1.0, avg: 1.3, max: 2.0)
+[2026-10-27 18:41:36,491][42452] Avg episode reward: [(0, '-0.250')]
+[2026-10-27 18:41:38,803][42459] Signal inference workers to stop experience collection... (250 times)
+[2026-10-27 18:41:38,817][42460] InferenceWorker_p0-w0: stopping experience collection (250 times)
+[2026-10-27 18:41:38,959][42459] Signal inference workers to resume experience collection... (250 times)
+[2026-10-27 18:41:38,959][42460] InferenceWorker_p0-w0: resuming experience collection (250 times)
+[2026-10-27 18:41:39,708][42460] Updated weights for policy 0, policy_version 260 (0.0016)
+[2026-10-27 18:41:40,295][42452] Keyboard interrupt detected in the event loop EvtLoop [Runner_EvtLoop, process=main process 42452], exiting...
+[2026-10-27 18:41:40,295][42452] Runner profile tree view:
+main_loop: 202.8007
+[2026-10-27 18:41:40,295][42452] Collected {0: 266240}, FPS: 1312.8
+[2026-10-27 18:41:40,295][42459] Stopping Batcher_0...
+[2026-10-27 18:41:40,296][42459] Loop batcher_evt_loop terminating...
+[2026-10-27 18:41:40,305][42466] Stopping RolloutWorker_w5...
+[2026-10-27 18:41:40,305][42466] Loop rollout_proc5_evt_loop terminating...
+[2026-10-27 18:41:40,306][42472] Stopping RolloutWorker_w10...
+[2026-10-27 18:41:40,306][42470] Stopping RolloutWorker_w7...
+[2026-10-27 18:41:40,306][42472] Loop rollout_proc10_evt_loop terminating...
+[2026-10-27 18:41:40,306][42470] Loop rollout_proc7_evt_loop terminating...
+[2026-10-27 18:41:40,307][42467] Stopping RolloutWorker_w6...
+[2026-10-27 18:41:40,307][42467] Loop rollout_proc6_evt_loop terminating...
+[2026-10-27 18:41:40,307][42468] Stopping RolloutWorker_w8...
+[2026-10-27 18:41:40,307][42468] Loop rollout_proc8_evt_loop terminating...
+[2026-10-27 18:41:40,309][42471] Stopping RolloutWorker_w11...
+[2026-10-27 18:41:40,309][42471] Loop rollout_proc11_evt_loop terminating...
+[2026-10-27 18:41:40,309][42465] Stopping RolloutWorker_w4...
+[2026-10-27 18:41:40,309][42465] Loop rollout_proc4_evt_loop terminating...
+[2026-10-27 18:41:40,309][42462] Stopping RolloutWorker_w1...
+[2026-10-27 18:41:40,309][42462] Loop rollout_proc1_evt_loop terminating...
+[2026-10-27 18:41:40,310][42463] Stopping RolloutWorker_w2...
+[2026-10-27 18:41:40,310][42463] Loop rollout_proc2_evt_loop terminating...
+[2026-10-27 18:41:40,310][42464] Stopping RolloutWorker_w3...
+[2026-10-27 18:41:40,311][42464] Loop rollout_proc3_evt_loop terminating...
+[2026-10-27 18:41:40,313][42469] Stopping RolloutWorker_w9...
+[2026-10-27 18:41:40,314][42469] Loop rollout_proc9_evt_loop terminating...
+[2026-10-27 18:41:40,320][42461] Stopping RolloutWorker_w0...
+[2026-10-27 18:41:40,321][42461] Loop rollout_proc0_evt_loop terminating...
+[2026-10-27 18:41:40,341][42460] Weights refcount: 2 0
+[2026-10-27 18:41:40,345][42460] Stopping InferenceWorker_p0-w0...
+[2026-10-27 18:41:40,345][42460] Loop inference_proc0-0_evt_loop terminating...
+[2026-10-27 18:41:41,451][42459] Saving ../train_dir/sample_factory_human_monk/checkpoint_p0/checkpoint_000000262_268288.pth...
+[2026-10-27 18:41:41,525][42459] Stopping LearnerWorker_p0...
+[2026-10-27 18:41:41,526][42459] Loop learner_proc0_evt_loop terminating...
+[2026-10-27 18:43:02,407][42556] On MacOS, not setting affinity
+[2026-10-27 18:43:02,430][42553] RunningMeanStd input shape: (1,)
+[2026-10-27 18:43:02,435][42554] On MacOS, not setting affinity
+[2026-10-27 18:43:02,446][42558] On MacOS, not setting affinity
+[2026-10-27 18:43:02,466][42559] On MacOS, not setting affinity
+[2026-10-27 18:43:02,466][42555] On MacOS, not setting affinity
+[2026-10-27 18:43:02,474][42562] On MacOS, not setting affinity
+[2026-10-27 18:43:02,474][42560] On MacOS, not setting affinity
+[2026-10-27 18:43:02,479][42561] On MacOS, not setting affinity
+[2026-10-27 18:43:02,500][42564] On MacOS, not setting affinity
+[2026-10-27 18:43:02,512][42557] On MacOS, not setting affinity
+[2026-10-27 18:43:02,527][42565] On MacOS, not setting affinity
+[2026-10-27 18:43:02,534][42563] On MacOS, not setting affinity
+[2026-10-27 18:43:02,889][42563] EvtLoop [rollout_proc9_evt_loop, process=rollout_proc9] unhandled exception in slot='init' connected to emitter=Emitter(object_id='Sampler', signal_name='_inference_workers_initialized'), args=()
+Traceback (most recent call last):
+  File "/Users/cosmin/nethack_agent/venv/lib/python3.11/site-packages/signal_slot/signal_slot.py", line 355, in _process_signal
+    slot_callable(*args)
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/algo/sampling/rollout_worker.py", line 154, in init
+    env_runner.init(self.timing)
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/algo/sampling/non_batched_sampling.py", line 418, in init
+    self._reset()
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/algo/sampling/non_batched_sampling.py", line 430, in _reset
+    observations, info = e.reset(seed=seed)  # new way of doing seeding since Gym 0.26.0
+                         ^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/venv/lib/python3.11/site-packages/gymnasium/core.py", line 467, in reset
+    return self.env.reset(seed=seed, options=options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/algo/utils/make_env.py", line 110, in reset
+    obs, info = self.env.reset(**kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/envs/env_wrappers.py", line 452, in reset
+    return self.env.reset(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/task_rewards.py", line 29, in reset
+    obs = self.env.reset(**kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/venv/lib/python3.11/site-packages/gymnasium/core.py", line 467, in reset
+    return self.env.reset(seed=seed, options=options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/prev_actions.py", line 16, in reset
+    obs, info = self.env.reset(**kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/tile_tty.py", line 72, in reset
+    self._populate_obs(obs)
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/tile_tty.py", line 65, in _populate_obs
+    cropped_tty = self.crop_around_cursor(tty, tty_cursor)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/tile_tty.py", line 55, in crop_around_cursor
+    output[..., out_start_h:out_end_h, out_start_w:out_end_w] = array[..., start_h:end_h, start_w:end_w]
+    ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: could not broadcast input array from shape (2,16,17) into shape (2,0,0)
+[2026-10-27 18:43:02,891][42563] Unhandled exception could not broadcast input array from shape (2,16,17) into shape (2,0,0) in evt loop rollout_proc9_evt_loop
+[2026-10-27 18:43:03,112][42564] EvtLoop [rollout_proc10_evt_loop, process=rollout_proc10] unhandled exception in slot='init' connected to emitter=Emitter(object_id='Sampler', signal_name='_inference_workers_initialized'), args=()
+Traceback (most recent call last):
+  File "/Users/cosmin/nethack_agent/venv/lib/python3.11/site-packages/signal_slot/signal_slot.py", line 355, in _process_signal
+    slot_callable(*args)
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/algo/sampling/rollout_worker.py", line 154, in init
+    env_runner.init(self.timing)
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/algo/sampling/non_batched_sampling.py", line 418, in init
+    self._reset()
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/algo/sampling/non_batched_sampling.py", line 430, in _reset
+    observations, info = e.reset(seed=seed)  # new way of doing seeding since Gym 0.26.0
+                         ^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/venv/lib/python3.11/site-packages/gymnasium/core.py", line 467, in reset
+    return self.env.reset(seed=seed, options=options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/algo/utils/make_env.py", line 110, in reset
+    obs, info = self.env.reset(**kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/envs/env_wrappers.py", line 452, in reset
+    return self.env.reset(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/task_rewards.py", line 29, in reset
+    obs = self.env.reset(**kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/venv/lib/python3.11/site-packages/gymnasium/core.py", line 467, in reset
+    return self.env.reset(seed=seed, options=options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/prev_actions.py", line 16, in reset
+    obs, info = self.env.reset(**kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/tile_tty.py", line 72, in reset
+    self._populate_obs(obs)
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/tile_tty.py", line 65, in _populate_obs
+    cropped_tty = self.crop_around_cursor(tty, tty_cursor)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/tile_tty.py", line 55, in crop_around_cursor
+    output[..., out_start_h:out_end_h, out_start_w:out_end_w] = array[..., start_h:end_h, start_w:end_w]
+    ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: could not broadcast input array from shape (2,18,18) into shape (2,0,0)
+[2026-10-27 18:43:03,113][42564] Unhandled exception could not broadcast input array from shape (2,18,18) into shape (2,0,0) in evt loop rollout_proc10_evt_loop
+[2026-10-27 18:43:03,366][42561] EvtLoop [rollout_proc8_evt_loop, process=rollout_proc8] unhandled exception in slot='init' connected to emitter=Emitter(object_id='Sampler', signal_name='_inference_workers_initialized'), args=()
+Traceback (most recent call last):
+  File "/Users/cosmin/nethack_agent/venv/lib/python3.11/site-packages/signal_slot/signal_slot.py", line 355, in _process_signal
+    slot_callable(*args)
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/algo/sampling/rollout_worker.py", line 154, in init
+    env_runner.init(self.timing)
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/algo/sampling/non_batched_sampling.py", line 418, in init
+    self._reset()
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/algo/sampling/non_batched_sampling.py", line 430, in _reset
+    observations, info = e.reset(seed=seed)  # new way of doing seeding since Gym 0.26.0
+                         ^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/venv/lib/python3.11/site-packages/gymnasium/core.py", line 467, in reset
+    return self.env.reset(seed=seed, options=options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/algo/utils/make_env.py", line 110, in reset
+    obs, info = self.env.reset(**kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/envs/env_wrappers.py", line 452, in reset
+    return self.env.reset(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/task_rewards.py", line 29, in reset
+    obs = self.env.reset(**kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/venv/lib/python3.11/site-packages/gymnasium/core.py", line 467, in reset
+    return self.env.reset(seed=seed, options=options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/prev_actions.py", line 16, in reset
+    obs, info = self.env.reset(**kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/tile_tty.py", line 72, in reset
+    self._populate_obs(obs)
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/tile_tty.py", line 65, in _populate_obs
+    cropped_tty = self.crop_around_cursor(tty, tty_cursor)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/tile_tty.py", line 55, in crop_around_cursor
+    output[..., out_start_h:out_end_h, out_start_w:out_end_w] = array[..., start_h:end_h, start_w:end_w]
+    ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: could not broadcast input array from shape (2,17,18) into shape (2,0,0)
+[2026-10-27 18:43:03,367][42561] Unhandled exception could not broadcast input array from shape (2,17,18) into shape (2,0,0) in evt loop rollout_proc8_evt_loop
+[2026-10-27 18:43:03,604][42562] EvtLoop [rollout_proc6_evt_loop, process=rollout_proc6] unhandled exception in slot='init' connected to emitter=Emitter(object_id='Sampler', signal_name='_inference_workers_initialized'), args=()
+Traceback (most recent call last):
+  File "/Users/cosmin/nethack_agent/venv/lib/python3.11/site-packages/signal_slot/signal_slot.py", line 355, in _process_signal
+    slot_callable(*args)
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/algo/sampling/rollout_worker.py", line 154, in init
+    env_runner.init(self.timing)
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/algo/sampling/non_batched_sampling.py", line 418, in init
+    self._reset()
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/algo/sampling/non_batched_sampling.py", line 430, in _reset
+    observations, info = e.reset(seed=seed)  # new way of doing seeding since Gym 0.26.0
+                         ^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/venv/lib/python3.11/site-packages/gymnasium/core.py", line 467, in reset
+    return self.env.reset(seed=seed, options=options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/algo/utils/make_env.py", line 110, in reset
+    obs, info = self.env.reset(**kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/envs/env_wrappers.py", line 452, in reset
+    return self.env.reset(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/task_rewards.py", line 29, in reset
+    obs = self.env.reset(**kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/venv/lib/python3.11/site-packages/gymnasium/core.py", line 467, in reset
+    return self.env.reset(seed=seed, options=options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/prev_actions.py", line 16, in reset
+    obs, info = self.env.reset(**kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/tile_tty.py", line 72, in reset
+    self._populate_obs(obs)
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/tile_tty.py", line 65, in _populate_obs
+    cropped_tty = self.crop_around_cursor(tty, tty_cursor)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/tile_tty.py", line 55, in crop_around_cursor
+    output[..., out_start_h:out_end_h, out_start_w:out_end_w] = array[..., start_h:end_h, start_w:end_w]
+    ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: could not broadcast input array from shape (2,16,18) into shape (2,0,0)
+[2026-10-27 18:43:03,604][42562] Unhandled exception could not broadcast input array from shape (2,16,18) into shape (2,0,0) in evt loop rollout_proc6_evt_loop
+[2026-10-27 18:43:03,832][42558] EvtLoop [rollout_proc5_evt_loop, process=rollout_proc5] unhandled exception in slot='init' connected to emitter=Emitter(object_id='Sampler', signal_name='_inference_workers_initialized'), args=()
+Traceback (most recent call last):
+  File "/Users/cosmin/nethack_agent/venv/lib/python3.11/site-packages/signal_slot/signal_slot.py", line 355, in _process_signal
+    slot_callable(*args)
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/algo/sampling/rollout_worker.py", line 154, in init
+    env_runner.init(self.timing)
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/algo/sampling/non_batched_sampling.py", line 418, in init
+    self._reset()
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/algo/sampling/non_batched_sampling.py", line 430, in _reset
+    observations, info = e.reset(seed=seed)  # new way of doing seeding since Gym 0.26.0
+                         ^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/venv/lib/python3.11/site-packages/gymnasium/core.py", line 467, in reset
+    return self.env.reset(seed=seed, options=options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/algo/utils/make_env.py", line 110, in reset
+    obs, info = self.env.reset(**kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/envs/env_wrappers.py", line 452, in reset
+    return self.env.reset(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/task_rewards.py", line 29, in reset
+    obs = self.env.reset(**kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/venv/lib/python3.11/site-packages/gymnasium/core.py", line 467, in reset
+    return self.env.reset(seed=seed, options=options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/prev_actions.py", line 16, in reset
+    obs, info = self.env.reset(**kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/tile_tty.py", line 72, in reset
+    self._populate_obs(obs)
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/tile_tty.py", line 65, in _populate_obs
+    cropped_tty = self.crop_around_cursor(tty, tty_cursor)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/tile_tty.py", line 55, in crop_around_cursor
+    output[..., out_start_h:out_end_h, out_start_w:out_end_w] = array[..., start_h:end_h, start_w:end_w]
+    ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: could not broadcast input array from shape (2,18,18) into shape (2,0,0)
+[2026-10-27 18:43:03,832][42558] Unhandled exception could not broadcast input array from shape (2,18,18) into shape (2,0,0) in evt loop rollout_proc5_evt_loop
+[2026-10-27 18:43:04,069][42560] EvtLoop [rollout_proc7_evt_loop, process=rollout_proc7] unhandled exception in slot='init' connected to emitter=Emitter(object_id='Sampler', signal_name='_inference_workers_initialized'), args=()
+Traceback (most recent call last):
+  File "/Users/cosmin/nethack_agent/venv/lib/python3.11/site-packages/signal_slot/signal_slot.py", line 355, in _process_signal
+    slot_callable(*args)
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/algo/sampling/rollout_worker.py", line 154, in init
+    env_runner.init(self.timing)
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/algo/sampling/non_batched_sampling.py", line 418, in init
+    self._reset()
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/algo/sampling/non_batched_sampling.py", line 430, in _reset
+    observations, info = e.reset(seed=seed)  # new way of doing seeding since Gym 0.26.0
+                         ^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/venv/lib/python3.11/site-packages/gymnasium/core.py", line 467, in reset
+    return self.env.reset(seed=seed, options=options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/algo/utils/make_env.py", line 110, in reset
+    obs, info = self.env.reset(**kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/envs/env_wrappers.py", line 452, in reset
+    return self.env.reset(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/task_rewards.py", line 29, in reset
+    obs = self.env.reset(**kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/venv/lib/python3.11/site-packages/gymnasium/core.py", line 467, in reset
+    return self.env.reset(seed=seed, options=options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/prev_actions.py", line 16, in reset
+    obs, info = self.env.reset(**kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/tile_tty.py", line 72, in reset
+    self._populate_obs(obs)
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/tile_tty.py", line 65, in _populate_obs
+    cropped_tty = self.crop_around_cursor(tty, tty_cursor)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/tile_tty.py", line 55, in crop_around_cursor
+    output[..., out_start_h:out_end_h, out_start_w:out_end_w] = array[..., start_h:end_h, start_w:end_w]
+    ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: could not broadcast input array from shape (2,16,18) into shape (2,0,0)
+[2026-10-27 18:43:04,070][42560] Unhandled exception could not broadcast input array from shape (2,16,18) into shape (2,0,0) in evt loop rollout_proc7_evt_loop
+[2026-10-27 18:43:04,324][42559] EvtLoop [rollout_proc4_evt_loop, process=rollout_proc4] unhandled exception in slot='init' connected to emitter=Emitter(object_id='Sampler', signal_name='_inference_workers_initialized'), args=()
+Traceback (most recent call last):
+  File "/Users/cosmin/nethack_agent/venv/lib/python3.11/site-packages/signal_slot/signal_slot.py", line 355, in _process_signal
+    slot_callable(*args)
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/algo/sampling/rollout_worker.py", line 154, in init
+    env_runner.init(self.timing)
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/algo/sampling/non_batched_sampling.py", line 418, in init
+    self._reset()
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/algo/sampling/non_batched_sampling.py", line 430, in _reset
+    observations, info = e.reset(seed=seed)  # new way of doing seeding since Gym 0.26.0
+                         ^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/venv/lib/python3.11/site-packages/gymnasium/core.py", line 467, in reset
+    return self.env.reset(seed=seed, options=options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/algo/utils/make_env.py", line 110, in reset
+    obs, info = self.env.reset(**kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/envs/env_wrappers.py", line 452, in reset
+    return self.env.reset(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/task_rewards.py", line 29, in reset
+    obs = self.env.reset(**kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/venv/lib/python3.11/site-packages/gymnasium/core.py", line 467, in reset
+    return self.env.reset(seed=seed, options=options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/prev_actions.py", line 16, in reset
+    obs, info = self.env.reset(**kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/tile_tty.py", line 72, in reset
+    self._populate_obs(obs)
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/tile_tty.py", line 65, in _populate_obs
+    cropped_tty = self.crop_around_cursor(tty, tty_cursor)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/tile_tty.py", line 55, in crop_around_cursor
+    output[..., out_start_h:out_end_h, out_start_w:out_end_w] = array[..., start_h:end_h, start_w:end_w]
+    ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: could not broadcast input array from shape (2,0,18) into shape (2,17,0)
+[2026-10-27 18:43:04,325][42559] Unhandled exception could not broadcast input array from shape (2,0,18) into shape (2,17,0) in evt loop rollout_proc4_evt_loop
+[2026-10-27 18:43:04,559][42565] EvtLoop [rollout_proc11_evt_loop, process=rollout_proc11] unhandled exception in slot='init' connected to emitter=Emitter(object_id='Sampler', signal_name='_inference_workers_initialized'), args=()
+Traceback (most recent call last):
+  File "/Users/cosmin/nethack_agent/venv/lib/python3.11/site-packages/signal_slot/signal_slot.py", line 355, in _process_signal
+    slot_callable(*args)
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/algo/sampling/rollout_worker.py", line 154, in init
+    env_runner.init(self.timing)
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/algo/sampling/non_batched_sampling.py", line 418, in init
+    self._reset()
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/algo/sampling/non_batched_sampling.py", line 430, in _reset
+    observations, info = e.reset(seed=seed)  # new way of doing seeding since Gym 0.26.0
+                         ^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/venv/lib/python3.11/site-packages/gymnasium/core.py", line 467, in reset
+    return self.env.reset(seed=seed, options=options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/algo/utils/make_env.py", line 110, in reset
+    obs, info = self.env.reset(**kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/envs/env_wrappers.py", line 452, in reset
+    return self.env.reset(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/task_rewards.py", line 29, in reset
+    obs = self.env.reset(**kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/venv/lib/python3.11/site-packages/gymnasium/core.py", line 467, in reset
+    return self.env.reset(seed=seed, options=options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/prev_actions.py", line 16, in reset
+    obs, info = self.env.reset(**kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/tile_tty.py", line 72, in reset
+    self._populate_obs(obs)
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/tile_tty.py", line 65, in _populate_obs
+    cropped_tty = self.crop_around_cursor(tty, tty_cursor)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/tile_tty.py", line 55, in crop_around_cursor
+    output[..., out_start_h:out_end_h, out_start_w:out_end_w] = array[..., start_h:end_h, start_w:end_w]
+    ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: could not broadcast input array from shape (2,0,18) into shape (2,13,0)
+[2026-10-27 18:43:04,560][42565] Unhandled exception could not broadcast input array from shape (2,0,18) into shape (2,13,0) in evt loop rollout_proc11_evt_loop
+[2026-10-27 18:43:04,800][42557] EvtLoop [rollout_proc3_evt_loop, process=rollout_proc3] unhandled exception in slot='init' connected to emitter=Emitter(object_id='Sampler', signal_name='_inference_workers_initialized'), args=()
+Traceback (most recent call last):
+  File "/Users/cosmin/nethack_agent/venv/lib/python3.11/site-packages/signal_slot/signal_slot.py", line 355, in _process_signal
+    slot_callable(*args)
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/algo/sampling/rollout_worker.py", line 154, in init
+    env_runner.init(self.timing)
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/algo/sampling/non_batched_sampling.py", line 418, in init
+    self._reset()
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/algo/sampling/non_batched_sampling.py", line 430, in _reset
+    observations, info = e.reset(seed=seed)  # new way of doing seeding since Gym 0.26.0
+                         ^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/venv/lib/python3.11/site-packages/gymnasium/core.py", line 467, in reset
+    return self.env.reset(seed=seed, options=options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/algo/utils/make_env.py", line 110, in reset
+    obs, info = self.env.reset(**kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/envs/env_wrappers.py", line 452, in reset
+    return self.env.reset(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/task_rewards.py", line 29, in reset
+    obs = self.env.reset(**kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/venv/lib/python3.11/site-packages/gymnasium/core.py", line 467, in reset
+    return self.env.reset(seed=seed, options=options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/prev_actions.py", line 16, in reset
+    obs, info = self.env.reset(**kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/tile_tty.py", line 72, in reset
+    self._populate_obs(obs)
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/tile_tty.py", line 65, in _populate_obs
+    cropped_tty = self.crop_around_cursor(tty, tty_cursor)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/tile_tty.py", line 55, in crop_around_cursor
+    output[..., out_start_h:out_end_h, out_start_w:out_end_w] = array[..., start_h:end_h, start_w:end_w]
+    ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: could not broadcast input array from shape (2,0,18) into shape (2,12,0)
+[2026-10-27 18:43:04,801][42557] Unhandled exception could not broadcast input array from shape (2,0,18) into shape (2,12,0) in evt loop rollout_proc3_evt_loop
+[2026-10-27 18:43:05,035][42556] EvtLoop [rollout_proc2_evt_loop, process=rollout_proc2] unhandled exception in slot='init' connected to emitter=Emitter(object_id='Sampler', signal_name='_inference_workers_initialized'), args=()
+Traceback (most recent call last):
+  File "/Users/cosmin/nethack_agent/venv/lib/python3.11/site-packages/signal_slot/signal_slot.py", line 355, in _process_signal
+    slot_callable(*args)
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/algo/sampling/rollout_worker.py", line 154, in init
+    env_runner.init(self.timing)
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/algo/sampling/non_batched_sampling.py", line 418, in init
+    self._reset()
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/algo/sampling/non_batched_sampling.py", line 430, in _reset
+    observations, info = e.reset(seed=seed)  # new way of doing seeding since Gym 0.26.0
+                         ^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/venv/lib/python3.11/site-packages/gymnasium/core.py", line 467, in reset
+    return self.env.reset(seed=seed, options=options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/algo/utils/make_env.py", line 110, in reset
+    obs, info = self.env.reset(**kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/envs/env_wrappers.py", line 452, in reset
+    return self.env.reset(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/task_rewards.py", line 29, in reset
+    obs = self.env.reset(**kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/venv/lib/python3.11/site-packages/gymnasium/core.py", line 467, in reset
+    return self.env.reset(seed=seed, options=options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/prev_actions.py", line 16, in reset
+    obs, info = self.env.reset(**kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/tile_tty.py", line 72, in reset
+    self._populate_obs(obs)
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/tile_tty.py", line 65, in _populate_obs
+    cropped_tty = self.crop_around_cursor(tty, tty_cursor)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/tile_tty.py", line 55, in crop_around_cursor
+    output[..., out_start_h:out_end_h, out_start_w:out_end_w] = array[..., start_h:end_h, start_w:end_w]
+    ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: could not broadcast input array from shape (2,15,15) into shape (2,0,0)
+[2026-10-27 18:43:05,036][42556] Unhandled exception could not broadcast input array from shape (2,15,15) into shape (2,0,0) in evt loop rollout_proc2_evt_loop
+[2026-10-27 18:43:05,318][42555] EvtLoop [rollout_proc1_evt_loop, process=rollout_proc1] unhandled exception in slot='init' connected to emitter=Emitter(object_id='Sampler', signal_name='_inference_workers_initialized'), args=()
+Traceback (most recent call last):
+  File "/Users/cosmin/nethack_agent/venv/lib/python3.11/site-packages/signal_slot/signal_slot.py", line 355, in _process_signal
+    slot_callable(*args)
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/algo/sampling/rollout_worker.py", line 154, in init
+    env_runner.init(self.timing)
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/algo/sampling/non_batched_sampling.py", line 418, in init
+    self._reset()
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/algo/sampling/non_batched_sampling.py", line 430, in _reset
+    observations, info = e.reset(seed=seed)  # new way of doing seeding since Gym 0.26.0
+                         ^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/venv/lib/python3.11/site-packages/gymnasium/core.py", line 467, in reset
+    return self.env.reset(seed=seed, options=options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/algo/utils/make_env.py", line 110, in reset
+    obs, info = self.env.reset(**kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/envs/env_wrappers.py", line 452, in reset
+    return self.env.reset(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/task_rewards.py", line 29, in reset
+    obs = self.env.reset(**kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/venv/lib/python3.11/site-packages/gymnasium/core.py", line 467, in reset
+    return self.env.reset(seed=seed, options=options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/prev_actions.py", line 16, in reset
+    obs, info = self.env.reset(**kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/tile_tty.py", line 72, in reset
+    self._populate_obs(obs)
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/tile_tty.py", line 65, in _populate_obs
+    cropped_tty = self.crop_around_cursor(tty, tty_cursor)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/tile_tty.py", line 55, in crop_around_cursor
+    output[..., out_start_h:out_end_h, out_start_w:out_end_w] = array[..., start_h:end_h, start_w:end_w]
+    ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: could not broadcast input array from shape (2,0,0) into shape (2,14,12)
+[2026-10-27 18:43:05,318][42555] Unhandled exception could not broadcast input array from shape (2,0,0) into shape (2,14,12) in evt loop rollout_proc1_evt_loop
+[2026-10-27 18:43:05,619][42554] EvtLoop [rollout_proc0_evt_loop, process=rollout_proc0] unhandled exception in slot='init' connected to emitter=Emitter(object_id='Sampler', signal_name='_inference_workers_initialized'), args=()
+Traceback (most recent call last):
+  File "/Users/cosmin/nethack_agent/venv/lib/python3.11/site-packages/signal_slot/signal_slot.py", line 355, in _process_signal
+    slot_callable(*args)
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/algo/sampling/rollout_worker.py", line 154, in init
+    env_runner.init(self.timing)
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/algo/sampling/non_batched_sampling.py", line 418, in init
+    self._reset()
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/algo/sampling/non_batched_sampling.py", line 430, in _reset
+    observations, info = e.reset(seed=seed)  # new way of doing seeding since Gym 0.26.0
+                         ^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/venv/lib/python3.11/site-packages/gymnasium/core.py", line 467, in reset
+    return self.env.reset(seed=seed, options=options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/algo/utils/make_env.py", line 110, in reset
+    obs, info = self.env.reset(**kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sample_factory/envs/env_wrappers.py", line 452, in reset
+    return self.env.reset(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/task_rewards.py", line 29, in reset
+    obs = self.env.reset(**kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/venv/lib/python3.11/site-packages/gymnasium/core.py", line 467, in reset
+    return self.env.reset(seed=seed, options=options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/prev_actions.py", line 16, in reset
+    obs, info = self.env.reset(**kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/tile_tty.py", line 72, in reset
+    self._populate_obs(obs)
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/tile_tty.py", line 65, in _populate_obs
+    cropped_tty = self.crop_around_cursor(tty, tty_cursor)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cosmin/nethack_agent/sample-factory/sf_examples/nethack/utils/wrappers/tile_tty.py", line 55, in crop_around_cursor
+    output[..., out_start_h:out_end_h, out_start_w:out_end_w] = array[..., start_h:end_h, start_w:end_w]
+    ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: could not broadcast input array from shape (2,14,18) into shape (2,0,0)
+[2026-10-27 18:43:05,620][42554] Unhandled exception could not broadcast input array from shape (2,14,18) into shape (2,0,0) in evt loop rollout_proc0_evt_loop

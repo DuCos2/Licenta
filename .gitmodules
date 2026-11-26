@@ -1,0 +1,3 @@
+[submodule "sample-factory"]
+	path = sample-factory
+	url = https://github.com/alex-petrenko/sample-factory.git

@@ -1,0 +1,49 @@
+diff --git a/sample_factory/model/core.py b/sample_factory/model/core.py
+index 50423d24..678642e0 100644
+--- a/sample_factory/model/core.py
++++ b/sample_factory/model/core.py
+@@ -24,10 +24,10 @@ class ModelCoreRNN(ModelCore):
+         self.is_gru = False
+ 
+         if cfg.rnn_type == "gru":
+-            self.core = nn.GRU(input_size, cfg.rnn_size, cfg.rnn_num_layers)
++            self.core = nn.GRU(int(input_size), cfg.rnn_size, cfg.rnn_num_layers)
+             self.is_gru = True
+         elif cfg.rnn_type == "lstm":
+-            self.core = nn.LSTM(input_size, cfg.rnn_size, cfg.rnn_num_layers)
++            self.core = nn.LSTM(int(input_size), cfg.rnn_size, cfg.rnn_num_layers)
+         else:
+             raise RuntimeError(f"Unknown RNN type {cfg.rnn_type}")
+ 
+diff --git a/sf_examples/nethack/utils/wrappers/tile_tty.py b/sf_examples/nethack/utils/wrappers/tile_tty.py
+index 96c133bd..adce4ea5 100644
+--- a/sf_examples/nethack/utils/wrappers/tile_tty.py
++++ b/sf_examples/nethack/utils/wrappers/tile_tty.py
+@@ -36,18 +36,21 @@ class TileTTY(gym.Wrapper):
+         rows, cols = array.shape[-2:]
+         half_crop = self.crop_size // 2
+ 
++        # Cast to int to avoid uint8 underflow when cursor is near position 0
++        cur_h, cur_w = int(cursor_pos[0]), int(cursor_pos[1])
++
+         # Calculate boundaries
+-        start_h = max(0, cursor_pos[0] - half_crop)
+-        end_h = min(rows, cursor_pos[0] + half_crop + (self.crop_size % 2))
+-        start_w = max(0, cursor_pos[1] - half_crop)
+-        end_w = min(cols, cursor_pos[1] + half_crop + (self.crop_size % 2))
++        start_h = max(0, cur_h - half_crop)
++        end_h = min(rows, cur_h + half_crop + (self.crop_size % 2))
++        start_w = max(0, cur_w - half_crop)
++        end_w = min(cols, cur_w + half_crop + (self.crop_size % 2))
+ 
+         # Create output array
+         output = np.zeros(array.shape[:-2] + (self.crop_size, self.crop_size), dtype=array.dtype)
+ 
+         # Calculate where in the output to place the valid data
+-        out_start_h = max(0, half_crop - cursor_pos[0])
+-        out_start_w = max(0, half_crop - cursor_pos[1])
++        out_start_h = max(0, half_crop - cur_h)
++        out_start_w = max(0, half_crop - cur_w)
+         out_end_h = out_start_h + (end_h - start_h)
+         out_end_w = out_start_w + (end_w - start_w)
+ 
